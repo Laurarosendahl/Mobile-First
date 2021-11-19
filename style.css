@@ -1,0 +1,1399 @@
+/*farver*/
+:root {
+--brown: #856856; 
+--lightbrown:#a68a64; 
+--beige: #cfb9a7; 
+--beigewhite: #e8e2e2;
+--white: #F6F4F3;
+--grey: #dad8d8;
+--lightgreen: #656d4a; 
+--green: #414833; 
+--darkgreen: #111a0a; 
+--black: #222222; 
+
+--menu-speed: 0.75s;
+}
+
+/* TYPOGRAFI */
+
+* {
+  background-color: transparent;
+  margin: 0;
+}
+
+h1, h2, h4 {
+  font-family: fino-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p, h3, h5, h6 {
+  font-family: semplicitapro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+    margin: auto;
+  }
+  
+  .tekstur {
+    width: 100%;
+    height: auto;
+    top: 0px;
+    height: auto;
+    position: fixed;
+    z-index: -2;
+    
+  }
+  
+/* DROP-MENU */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  font-family: semplicitapro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 50px;
+  height: 50px;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  /* hamburger linje */
+  .menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+  /* hamburger linjer - øverste og nederste linje */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div::after {
+  content:'';
+  position: absolute;
+  z-index: 101;
+  top: -10px;
+  width: 100%;
+  height: 3px;
+  background: inherit;
+}
+
+/* rykker den ene af linjerne ned */
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+/* animation til kryds */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+  background-color: var(--black);
+}
+
+/* roter når pilen er over (hover) */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+/* animation til kryds */
+.menu-wrap .toggler:checked + .hamburger > div:before, 
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+} 
+
+/* gør menuen synlig */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition:  opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: var(--white);
+  opacity: 0.7;
+  border-radius: 50%;
+  width: 150vw;
+  height: 150vw;
+  display: flex;
+  flex: none;
+  align-items: center; 
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div >ul >li {
+  list-style: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div >ul >li >a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+/* SLUT DROP-MENU */
+
+.landing {
+  display: flex;
+}
+
+/*Video*/
+
+.video-horisontal {
+  z-index: -1;
+  position: relative;
+  top: 0;  
+  object-fit: cover;
+  overflow-x: hidden;
+  opacity: 90%;
+  background-color: var(--beige);
+  }
+
+/*Book Bord knap*/
+.bookbordknap {
+  position: absolute;
+  z-index: 100;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  font-family: semplicitapro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.bookbordknap a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.bookbordknap :hover {
+  text-decoration: underline;
+}
+
+.bookbordknap a:visited {
+  color: var(--white);
+  text-decoration: none;
+}
+
+#pil {
+  position: absolute;
+  z-index: 100;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width:50%;
+}
+
+
+/*Åbningstider*/
+
+.åbningstider {
+  text-align: center;
+  color: var(--white);
+  width:100%;
+  background-color: var(--brown);
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.åbningstider p {
+  font-family: fino-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.åbningstider h1 {
+   font-size: 40px;
+   letter-spacing: 4px;
+}
+
+.åbningstider sup {
+  font-size: 15px;
+}
+
+/*Billede af gaden*/
+.udenfor {
+  background-color: var(--beige);
+}
+
+.udenfor img {
+  opacity: 80%;
+}
+
+/*Menu*/
+#menu-section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.overskrift-menu {
+  color: var(--black);
+  text-align: center;
+  padding: 4%;
+}
+
+.menu-broedtekst {
+  color: var(--black);
+}
+
+
+/*Drikkevarer og cocktails*/
+
+.overskrift-drikkevarer {
+  color: var(--white)
+}
+
+.broedtekst-drikkevarer {
+  color: var(--white);
+}
+
+.overskrift-drikkevarer h2 {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 4%;
+}
+
+.broedtekst-drikkevarer h3 {
+  text-align: center;
+  line-height: 3;
+}
+
+.kaffekop {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.happyhour {
+  background-color: var(--beige);
+  background-image: url(images/happyhourbillede.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.happyhour p {
+  font-weight: 500;
+  text-align: center;
+}
+
+.happyhour img {
+  opacity: 80%;
+  width: 100%;
+  position: relative;
+}
+
+.happyhour h1 {
+  font-size: 80px;
+  line-height: 0.9;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.coctails-overskrift {
+  color: var(--black);
+}
+
+.flasker img {
+  width: 100%;
+}
+
+/*Om Os*/
+.omos {
+  background-color: var(--brown);
+  text-align: center;
+  color: var(--beigewhite);
+}
+
+.lisbeth img {
+  width: 100%;
+}
+
+/*Book Bord*/
+#bookbord {
+  background-color: var(--grey);
+  color: var(--black);
+}
+
+.ring {
+  text-align: center;
+}
+
+.maps {
+  text-align: center;
+}
+
+.phoneicon  {
+  margin: auto;
+  padding-top: 2%;
+  color: var(--black);
+}
+
+.locationdot {
+  margin: auto;
+  padding-top: 2%;
+  padding-bottom: 7%;
+  color: var(--black);
+}
+
+.ring a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.ring :visited {
+  text-decoration: none;
+  color: var(--white);
+}
+
+
+
+/* FOOTER */
+footer {
+ background-color: var(--beige);
+ color: var(--white);
+}
+
+.logofooter img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2%;
+}
+
+.facebookicon {
+  margin: auto;
+  color: var(--white);
+  padding-top: 2%;
+}
+
+.instaicon {
+  margin: auto;
+  color: var(--white);
+  padding-top: 2%;
+}
+
+.footertekst {
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-weight: 2;
+}
+
+.footertekst a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.footertekst :visited {
+  text-decoration: none;
+  color: var(--white);
+}
+
+/*Mobil-vertikal*/
+@media screen and (min-width:320px) and (max-width: 415px) {
+
+  /*video*/
+
+  .landingpage-video {
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    opacity: 90%;
+    background-color: var(--beige);
+  }
+  
+    .video-horisontal {
+      display: none;
+    }
+
+    /*Logo*/
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+     }
+
+    #logo {
+      width: 130%;
+      height: auto;
+    }
+
+    /*Dropdown*/
+    .dropbtn {
+      text-align: center;
+    }
+
+    /*Åbningstider*/
+    .åbningstider {
+      padding-bottom: 100px;
+      padding-top: 100px;
+    }     
+
+    /*Billede af gaden*/
+    .udenfor {
+      height: 203.5px;
+    }
+        
+    .udenfor img {
+        width: 100%;
+    }
+
+    /*Menu*/
+    #menu-section {
+      background-image: url(images/beigetesktur.png);
+      width: 100%;
+      background-position: center;
+      height: 560px;
+    }
+
+    .overskrift-menu {
+        font-size: 25px;
+    }
+
+    .menu-broedtekst {
+      line-height: 1.0;
+      margin-left: 10%; 
+      margin-right: 10%;
+      padding-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .menutapas {
+      background-image: url(images/tapasost.png);
+      background-color: var(--beige);
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 80%;
+    }
+    
+    .menutapas img {
+      opacity: 70%;
+    }
+
+    .menutapas {
+      min-width: 100%;
+      height: 180px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menutapas h1 {
+      position: absolute;
+      font-size: 38px;
+      padding-left: 5%;
+      margin-top: 12px;
+    }
+    
+    .menutapas p {
+      position: absolute;
+      font-size: 14px;
+      padding-left: 5%;
+      margin-top: 62px;
+    }
+
+    /*Drikkevarer og cocktails*/
+    #drikkevarer {
+      background-image: url(images/sorttekstur1.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 2410px;
+    }
+
+    .overskrift-drikkevarer h2 {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    .broedtekst-drikkevarer h3 {
+      padding-right: 10%;
+      padding-left: 10%;
+      padding-top: 4%;
+      padding-bottom: 4%;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .broedtekst-drikkevarer {
+      line-height: 1.8;
+      font-family: semplicitapro, sans-serif;
+      padding-bottom: 30px;
+    }
+
+    /*Drikkevarer med priser*/
+    .o1 {
+      text-align: left;
+      margin-left: 10%;
+      font-size: 15px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: 1;
+    }
+    
+    /*beskrivelser*/
+    .o2 {
+      text-align: left;
+      padding-left: 10%;
+      font-size: 15px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.8;
+    }
+    
+    .o3 {
+      text-align: left;
+      padding-left: 10%;
+      font-size: 15px;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .happyhour {
+      width: 100%;
+      height: 235px;
+    }
+
+    .happyhour img {
+      max-height: 235px;
+    }
+
+    .happyhour h1 {
+      position: relative;
+    }
+    
+    .happyhour p {
+      position: relative;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    /***/
+    .cocktails {
+      background-image: url(images/hvid.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 790px;
+    }
+    .coctails-overskrift {
+      font-size: 25px;
+      text-align: center;
+      padding-top: 4%;
+      padding-bottom: 1%;
+      letter-spacing: 2px;
+
+    }
+    
+    .bf-coctails h2 {
+      text-align: center;
+      line-height: 0.4;
+      font-size: 24px;
+      font-family: fino-sans, sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      padding-bottom: 2%;
+
+    }
+
+    .bf-coctails h4{
+      text-align: center;
+      font-size: 20px;
+      font-family: fino-sans, sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      padding-top: 4%;
+      padding-bottom: 4%;
+    }
+
+    .bf-broedtekst {
+      font-size: 15px;
+      margin-left: 10%;
+      margin-right: 10%;
+      line-height: 1.2;
+    }
+
+    .ad-cocktails h4 {
+      text-align: center;
+      font-size: 24px;
+      font-family: fino-sans, sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      padding-top: 4%;
+      padding-bottom: 4%;
+    }
+    
+    .ad-broedtekst {
+      font-size: 15px;
+      margin-left: 10%;
+      margin-right: 10%;
+      line-height: 1.2;
+    }
+
+    .flasker {
+      height: 209px;
+    }
+
+    /*Om Os*/
+    .omos {
+      padding-left: 10%;
+      padding-right: 10%;
+      height: 1000px;
+      background-image: url(images/bruntekstur69.png);
+      background-repeat: no-repeat;
+    }
+
+    .omos h2 {
+      font-size: 40px;
+      padding-top: 10%;
+      padding-bottom: 10%;
+      line-height: 1;
+    }
+
+    .lisbeth {
+      height: 267px;
+    }
+
+    .flasker1 {
+      display: none;
+    }
+
+    /*Book Bord*/
+    .bookbordoverskrift {
+      font-size: 27px;
+      letter-spacing: 2px;
+      padding-top: 20px ;
+    }
+    
+    .bookbordskrift {
+      font-size: 18px;
+    }
+
+    .bookbordoverskrift {
+      text-align: center;
+      padding-left: 10%;
+      padding-right: 10%;
+      font-size: 27px;
+      letter-spacing: 2px;
+      padding-top: 30px;
+    }
+    
+    .bookbordskrift {
+      text-align: center;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    .phoneicon  {
+      max-width: 30px;
+    }
+    
+    .locationdot {
+      max-width: 30px;
+    }
+    
+    .kontaktin img {
+      display: none;
+    }
+
+     .kontaktin {
+      display: none;
+    }
+    }
+    /*Footer*/
+    .logofooter img {
+      width: 60%;
+    }
+    
+    .facebookicon {
+      max-width: 30px;
+    }
+    
+    .instaicon {
+      max-width: 30px;
+    }
+  
+
+@media screen and (min-width: 676px) and (max-width:999px) {
+
+  /*Video*/
+  .landingpage-video {
+    display: none;
+
+  }
+  .video-horisontal {
+    display: inline;
+    min-width: 100%;
+    position: relative;
+  }
+
+  /*Logo*/
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   }
+
+  #logo {
+    width: 100%;
+    height: auto;
+  }
+
+  /*Åbningstider*/
+  .åbningstider {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }     
+  
+  .åbningstider h1 {
+     font-size: 40px;
+     letter-spacing: 4px;
+  }
+
+  /*Billede af gaden*/
+  .udenfor {
+    height: 375px;
+  }
+  .udenfor img {
+    min-width: 812px;
+    max-height: 375px;
+  }
+
+  /*Menu*/
+  .menu {
+    background-image: url(images/beigetesktur.png);
+    width: 100%;
+    background-position: center;
+    height: 900px;
+  }
+
+  .overskrift-menu {
+    font-size: 35px;
+  }
+
+  .menu-broedtekst {
+    line-height: 1.2;
+    margin-left: 25%; 
+    margin-right: 10%;
+    font-size: 22px;
+  }
+
+  .menutapas {
+    background-image: url(images/tapasost.png);
+    background-color: var(--beige);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 80%;
+  }
+  
+  .menutapas img {
+    opacity: 70%;
+  }
+
+  .menutapas {
+    height: 375px;
+  }
+
+  .menutapas h1 {
+    font-size: 80px;
+    margin-left: 5%;
+  }
+
+  .menutapas p {
+    font-size: 32px;
+    margin-left: 5%;
+  }
+
+  /*Drikkevarer og cocktails*/
+  #drikkevarer {
+    background-image: url(images/sorttekstur1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 3000px;
+  }
+
+
+  .broedtekst-drikkevarer h2 {
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    font-size: 20px;
+    font-family: semplicitapro, sans-serif;
+    font-weight: 500;
+  }
+
+  .broedtekst-drikkevarer p {
+    font-family: semplicitapro, sans-serif;
+    padding-bottom: 30px;
+    margin-left: 23%;
+    margin-right: 20%;
+    font-size: 22px;
+  }
+
+  .o1 {
+    font-weight: 500;
+    line-height: 0.1;
+  }
+
+  .o2 {
+    line-height: 1.1;
+  }
+
+  .happyhour {
+    width: 100%;
+    height: 255px;
+  }
+  
+  .happyhour p {
+    font-size: 17px;
+  }
+
+  .cocktails {
+    background-image: url(images/hvid.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 750px;
+  }
+  .coctails-overskrift {
+    font-size: 25px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .bf-coctails h2 {
+    text-align: center;
+    line-height: 0.4;
+    font-size: 24px;
+    padding-bottom: 25px;
+    font-family: fino-sans, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  .bf-coctails h4{
+    text-align: center;
+    font-size: 20px;
+    font-family: fino-sans, sans-serif;
+    font-weight: 800;
+    padding-bottom: 20px;
+    font-style: normal;
+    padding-top: 10px;
+  }
+
+  .bf-broedtekst {
+    font-size: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    line-height: 1.2;
+
+  }
+  
+  .ad-cocktails h4{
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .ad-broedtekst {
+    font-size: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    line-height:1.2;
+  }
+
+  .flasker  {
+    height: 375px;
+  }
+
+  .flasker1 {
+    display: none;
+  }
+
+  /*Om Os*/
+  .omos {
+    background-image: url(images/bruntekstur33.png);
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 740px;
+  }
+
+  .omos h2 {
+    font-size: 40px;
+    padding-top: 110px;
+    padding-bottom: 30px;
+    line-height: 1;
+  }
+ 
+  /*Der skal gøres noget ved billedet - det skal croppens lidt i højden*/
+  .lisbeth  {
+    min-height: 375px ;
+  }
+
+  /*Book Bord*/
+  .bookbordoverskrift {
+    font-size: 27px;
+    letter-spacing: 2px;
+    padding-top: 335px;
+  }
+  
+  .bookbordskrift {
+    font-size: 18px;
+  }
+
+  .bookbordoverskrift {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 27px;
+    letter-spacing: 2px;
+    padding-top: 30px;
+  }
+  
+  .bookbordskrift {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .phoneicon  {
+    max-width: 30px;
+  }
+  
+  .locationdot {
+    max-width: 30px;
+  }
+  
+  /*Footer*/
+  .logofooter img {
+    max-width: 20%;
+  }
+
+  .facebookicon {
+    max-width: 30px;
+  }
+  
+  .instaicon {
+    max-width: 30px;
+  }
+ 
+  .kontaktin {
+    display: none;
+  }
+
+  .kontaktin img {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 1011px) {
+    
+  .bookbordoverskrift {
+    font-size: 27px;
+    letter-spacing: 2px;
+  }
+  
+  .bookbordskrift {
+    font-size: 18px;
+  }
+
+  .phoneicon  {
+    max-width: 30px;
+  }
+  
+  .locationdot {
+    max-width: 30px;
+  }
+
+  .logofooter img {
+    width: 60%;
+  }
+  
+  .facebookicon {
+    max-width: 30px;
+  }
+  
+  .instaicon {
+    max-width: 30px;
+  }
+}
+
+/*Computer-skærm (1920*1080)*/
+@media screen and (min-width: 1100px) {
+
+  .landingpage-video {
+    display: none;
+  }
+  .video-horisontal {
+    min-width: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+    position: relative;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .åbningstider {
+    display: flex;
+    width: 50%;
+    height: 300px;
+    float: left;
+  }
+
+  .åbningstider h1 {
+    text-align: center;
+    transform: translate(38%, 15%);
+    font-size: 70px;
+  }
+
+  .åbningstider p {
+    text-align: center;
+    transform: translate(-90%, 55%);
+    font-size: 35px;
+  }
+
+  .udenfor img {
+    display: flex;
+    float: right;
+    width: 50%;
+    height: 400px;
+  }
+
+  .menu {
+    background-image: url(images/beigetesktur.png);
+    display: flex;
+    width: 50%;
+    height: 1050px;
+    float: right;
+}
+
+  .overskrift-menu {
+    display: flex;
+    text-align: center;
+    font-size: 35px;
+    transform: translate(175%, 2%);
+}
+
+  .menu-broedtekst {
+    margin-top: 20%;
+    line-height: 1.2;
+    font-size: 25px;
+    margin-left: -28px;
+  }
+
+  .menutapas {
+    background-image: url(images/tapas2.jpeg);
+    display: flex;
+    background-color: var(--beige);
+    width: 50%;
+    background-repeat: no-repeat;
+    opacity: 80%;
+    height: 375px;
+  }
+
+  .menutapas h1 {
+    font-size: 95px;
+    position: absolute;
+    margin-left: 2%;
+    height: 100px;
+  }
+
+  .menutapas p {
+    float: left;
+    font-size: 35px;
+    padding-top: 14%;
+    margin-left: 4%;
+  }
+
+  #drikkevarer {
+    background-image: url(images/sorttekstur1.png);
+    background-repeat: no-repeat;
+    display: flex;
+    float: left;
+    background-size: cover;
+    width: 50%;
+    height: 1580px;
+  }
+
+  .broedtekst-drikkevarer {
+    column-count: 2;
+    margin-top: 50px;
+  }
+
+  .broedtekst-drikkevarer h2 {
+    text-align: center;
+    padding-top: 4%;
+    font-size: 20px;
+    font-family: semplicitapro, sans-serif;
+    font-weight: 500;
+  }
+
+  .broedtekst-drikkevarer p {
+    font-family: semplicitapro, sans-serif;
+    margin-left: 7%;
+    gap: 10%;
+    padding-bottom: 30px;
+    font-size: 15px;
+  }
+
+  .o1 {
+    font-weight: 500;
+    line-height: 0.1;
+  }
+
+  .o2 {
+    line-height: 1.1;
+  }
+
+  .happyhour {
+    display: flex;
+    float: right;
+    width: 50%;
+    height: 255px;
+  }
+
+  .happyhour h1 {
+    text-align: left;
+    transform: translate(10%, 1%);
+    font-size: 120px;
+  }
+  
+  .happyhour p {
+    text-align: right;
+    font-size: 35px;
+    transform: translate(95%, 20%);
+  }
+
+  .cocktails {
+    background-image: url(images/hvid.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    float: right;
+    width: 50%;
+    height: 650px;
+  }
+
+  .coctails-overskrift {
+    font-size: 30px;
+    transform: translate(180%, 2%);
+  }
+  
+  .pris {
+    display: flex;
+    font-size: 25px;
+    padding-top: 10px;
+    transform: translate(470%, 200%);
+  }
+
+
+  .allecocktails {
+    column-count: 2;
+    gap: 10%;
+    transform: translate(-14%, 25%);
+  }
+
+  .bf, .ad-cocktails {
+    display: none;
+  }
+
+  .flasker {
+    display: none;
+  }
+
+  .omos {
+    background-image: url(images/brun1234.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    float: left;
+    width: 50%;
+    height: 585px;
+  }
+
+  .omos h2 {
+    font-size: 40px;
+    position: absolute;
+    padding-top: 12px;
+    margin-left: 22%;
+  }
+
+  .omos p {
+    font-size: 15px;
+    padding-top: 10% ;
+    margin-left: 4%;
+    padding-bottom: 4%;
+  }
+
+  .lisbeth {
+    display: flex;
+    float: right;
+    width: 50%;
+    min-height: 585px;
+  }
+
+  .bookbord {
+    display: flex;
+    width: 50%;
+    float: left;
+    height: 450px;
+  }
+
+  .bookbord h2 {
+    position: absolute;
+    font-size: 50px;
+    text-align: center;
+    transform: translate(100%, 25%);
+  }
+
+  .bookbordskrift p {
+    display: flex;
+    position: absolute;
+    text-align: center;
+    transform: translate(-2%, 45%);
+    margin-right:10%;
+    margin-left:10%;
+  }
+
+  .kontaktinfo2 {
+    display: none;
+  }
+
+  .tele {
+    width: 5%;
+    transform: translate(740%, 850%);
+  }
+
+  .kort {
+    width: 4%;
+    transform: translate(1340%, 880%);
+  }
+
+  .kontaktin h6 {
+    display: inline-block;
+    font-size: 15px;
+    
+  }
+
+  .tlf {
+    transform: translate(110%, 1600%);
+  }
+
+  .jæger {
+    transform: translate(140%, 840%);
+  }
+
+  .flasker1 img {
+    display: flex;
+    float: left;
+    width: 50%;
+    min-height: 450px;
+  }
+
+  
+  .logofooter img {
+    width: 20%;
+  }
+
+  .facebookicon {
+    max-width: 30px;
+  }
+  
+  .instaicon {
+    max-width: 30px;
+  }
+ 
+ 
+ 
+}
+
+
+
+
+
+
